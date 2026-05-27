@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: e8223431e80a5f043bf2d89bd67eeb72
+guid: f80e78a110af7d647a62494821f6ce2c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3259218343387502415
-    second: wopper_fall_0
+      213: -3947537636833120737
+    second: wopper_0
   - first:
-      213: -2312535982784364312
-    second: wopper_fall_1
+      213: 929693839460861856
+    second: wopper_1
   - first:
-      213: 3999977346340258041
-    second: wopper_fall_2
+      213: 2141743131279595980
+    second: wopper_2
   - first:
-      213: 3886401279675527203
-    second: wopper_fall_3
+      213: -8824643822064043297
+    second: wopper_3
+  - first:
+      213: 9020104028211404889
+    second: wopper_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,56 +125,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wopper_fall_0
+      name: wopper_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 6
-        width: 37
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1b863fc4f2ee4c2d0800000000000000
-      internalID: -3259218343387502415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wopper_fall_1
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 6
-        width: 37
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8e044d7a6c838efd0800000000000000
-      internalID: -2312535982784364312
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wopper_fall_2
-      rect:
-        serializedVersion: 2
-        x: 92
-        y: 7
-        width: 37
+        x: 8
+        y: 5
+        width: 25
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -181,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9f088362436c28730800000000000000
-      internalID: 3999977346340258041
+      spriteID: f1ea31b2f678739c0800000000000000
+      internalID: -3947537636833120737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wopper_fall_3
+      name: wopper_1
       rect:
         serializedVersion: 2
-        x: 136
-        y: 6
-        width: 37
-        height: 35
+        x: 52
+        y: 5
+        width: 25
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +162,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 320fea17f554fe530800000000000000
-      internalID: 3886401279675527203
+      spriteID: 0a70fea0f9fe6ec00800000000000000
+      internalID: 929693839460861856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wopper_2
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 5
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc99d0cc70009bd10800000000000000
+      internalID: 2141743131279595980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wopper_3
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 5
+        width: 25
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdaf684e231988580800000000000000
+      internalID: -8824643822064043297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wopper_4
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 5
+        width: 25
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9506c96b2d8dd2d70800000000000000
+      internalID: 9020104028211404889
       vertices: []
       indices: 
       edges: []
@@ -223,10 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      wopper_fall_0: -3259218343387502415
-      wopper_fall_1: -2312535982784364312
-      wopper_fall_2: 3999977346340258041
-      wopper_fall_3: 3886401279675527203
+      wopper_0: -3947537636833120737
+      wopper_1: 929693839460861856
+      wopper_2: 2141743131279595980
+      wopper_3: -8824643822064043297
+      wopper_4: 9020104028211404889
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

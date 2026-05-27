@@ -5,6 +5,7 @@ public class Player_Movement : MonoBehaviour
     // Variables de Movimiento
     public float moveSpeed = 5f;    
     public float jumpForce = 10f;
+    public float glideFallSpeed = -2f; //Velocidad de caída de planeo
 
     //Interacción con el suelo
     public Transform groundCheck;         
@@ -26,9 +27,15 @@ public class Player_Movement : MonoBehaviour
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal"); //Input horizontal
+
         if (Input.GetButtonDown("Jump") && isGrounded) //Input vertical
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+
+        if (Input.GetButton("Jump") && !isGrounded && rb.linearVelocity.y < 0) //Input para planear
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, glideFallSpeed); //Reducción de la velocidad de caída, hace el efecto de planeo
         }
     }
     void FixedUpdate()
