@@ -18,6 +18,7 @@ public class Player_Movement : MonoBehaviour
     private bool isGrounded;
     private bool isFacingRight = true;
     private Animator animator;
+    private bool isGliding;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,10 +37,9 @@ public class Player_Movement : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
-        if (Input.GetButton("Jump") && !isGrounded && rb.linearVelocity.y < 0) //Input para planear
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, glideFallSpeed); //Reducción de la velocidad de caída, hace el efecto de planeo
-        }
+        isGliding = Input.GetButton("Jump") &&
+            !isGrounded &&
+            rb.linearVelocity.y < 0;
 
         if (horizontalInput != 0) //correr - idle
             animator.SetBool("IsRunning", true); //Se vale no escribir las llaves si es solo una línea, en caso contrario ps pon llaves lmao
@@ -72,6 +72,14 @@ public class Player_Movement : MonoBehaviour
         rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y); //Velocidad horizontal y de salto
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); //Veifica si el personaje está en el suelo
+
+        if (isGliding)
+        {
+            if (rb.linearVelocity.y < glideFallSpeed)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, glideFallSpeed);
+            }
+        }
     }
 
     void FlipSprite()
