@@ -16,11 +16,14 @@ public class Player_Movement : MonoBehaviour
     private Rigidbody2D rb;
     private float horizontalInput;
     private bool isGrounded;
+    private bool isFacingRight = true;
+    private Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,6 +40,32 @@ public class Player_Movement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, glideFallSpeed); //Reducción de la velocidad de caída, hace el efecto de planeo
         }
+
+        if (horizontalInput != 0) //correr - idle
+            animator.SetBool("IsRunning", true); //Se vale no escribir las llaves si es solo una línea, en caso contrario ps pon llaves lmao
+        else
+            animator.SetBool("IsRunning", false);
+
+        // RESET
+        animator.SetBool("IsJumping", false);
+        animator.SetBool("IsGliding", false);
+
+        // SALTO NORMAL
+        if (!isGrounded)
+        {
+            animator.SetBool("IsJumping", true);
+        }
+
+        // PLANEO
+        if (!isGrounded &&
+            rb.linearVelocity.y < 0 &&
+            Input.GetButton("Jump"))
+        {
+            animator.SetBool("IsGliding", true);
+        }
+
+
+        FlipSprite();
     }
     void FixedUpdate()
     {
@@ -45,4 +74,21 @@ public class Player_Movement : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); //Veifica si el personaje está en el suelo
     }
 
+    void FlipSprite()
+    {
+        // Si nos movemos a la izquierda (input < 0) pero miramos a la derecha (isFacingRight = true)
+        if (horizontalInput < 0 && isFacingRight)
+        {
+            // Volteamos al jugador
+            transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            isFacingRight = false; // Ahora miramos a la izquierda
+        }
+        // Si nos movemos a la derecha (input > 0) pero miramos a la izquierda (isFacingRight = false)
+        else if (horizontalInput > 0 && !isFacingRight)
+        {
+            // Volteamos al jugador
+            transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            isFacingRight = true; // Ahora miramos a la derecha
+        }
+    }
 }
