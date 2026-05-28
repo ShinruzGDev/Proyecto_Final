@@ -67,6 +67,15 @@ public class Player_Movement : MonoBehaviour
 
         FlipSprite();
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("BounceTile"))
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce * 3);
+        }
+    }
+
     void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y); //Velocidad horizontal y de salto
